@@ -10,6 +10,7 @@ module.exports = {
       "lh3.googleusercontent.com",
       "robohash.org",
       "static-cdn.jtvnw.net",
+      "https://twitch-clone-wangola.netlify.app/",
     ],
   },
 };
