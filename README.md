@@ -9,7 +9,7 @@ A personal project - a Twitch clone built with Next.js and Tailwind. Currently, 
 
 ## Website
 
-[Twitch Clone](https://wangola.netlify.app/)
+[Twitch Clone](https://twitch-clone-wangola.netlify.app/)
 
 ## Built with
 
