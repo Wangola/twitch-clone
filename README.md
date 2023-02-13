@@ -1,6 +1,6 @@
 ## Twitch Clone
 
-![Home view](Pictures/Home%20page.png)
+![Home view](Pictures/Home%20page.PNG)
 
 _Twitch-Clone Description -_
 A personal project - a Twitch clone built with Next.js and Tailwind. Currently, it offers browsing and discovery features but does not support streaming. With a user-friendly interface optimized for both desktop and mobile. Please note that this project is not intended for general use, but serves as a learning and experimentation tool. Thank you for your understanding.
