@@ -4,9 +4,10 @@ import Image from "next/image";
 import logo from "../public/assests/logo.png";
 import { Menu, Transition } from "@headlessui/react";
 import { BsPerson, BsSearch, BsThreeDotsVertical } from "react-icons/bs";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineInbox, AiOutlineClose } from "react-icons/ai";
 import { CgCrown } from "react-icons/cg";
-import { FiLogIn, FiMoon, FiSun } from "react-icons/fi";
+import { BiMessage } from "react-icons/bi";
+import { FiLogIn, FiLogOut, FiMoon, FiSun } from "react-icons/fi";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useTheme } from "next-themes";
 
@@ -51,6 +52,15 @@ function NavBar() {
             className="cursor-pointer z-10"
           />
         </Link>
+
+        {session ? (
+          <p className="font-bold pl-8 hover:text-[#9147ff] cursor-pointer">
+            Following
+          </p>
+        ) : (
+          <p></p>
+        )}
+
         <p className="p-4 font-bold pl-8 hover:text-[#9147ff] cursor-pointer">
           Browse
         </p>
@@ -78,7 +88,7 @@ function NavBar() {
                   <Menu.Item>
                     {({ active }) => (
                       <a
-                        href="#"
+                        href="/missing"
                         className={classNames(
                           active
                             ? "bg-white text-black hover:bg-[#dfdfdf] dark:bg-[#3d3d40] dark:text-gray-100 rounded-md"
@@ -93,7 +103,7 @@ function NavBar() {
                   <Menu.Item>
                     {({ active }) => (
                       <a
-                        href="#"
+                        href="/missing"
                         className={classNames(
                           active
                             ? "bg-white text-black hover:bg-[#dfdfdf] dark:bg-[#3d3d40] dark:text-gray-100 rounded-md"
@@ -108,7 +118,7 @@ function NavBar() {
                   <Menu.Item>
                     {({ active }) => (
                       <a
-                        href="#"
+                        href="/missing"
                         className={classNames(
                           active
                             ? "bg-white text-black hover:bg-[#dfdfdf] dark:bg-[#3d3d40] dark:text-gray-100 rounded-md"
@@ -148,14 +158,20 @@ function NavBar() {
         {session ? (
           // If logged in
           <div className="flex items-center">
-            <CgCrown size={30} />
-            <Link href={"/account"}>
-              <div>
-                <p className="pr-4 cursor-pointer">
-                  Welcome, {session.user.name}
-                </p>
-              </div>
-            </Link>
+            <CgCrown
+              size={30}
+              className="rounded-md mr-3 p-1 hover:bg-[#f2f2f2] dark:hover:bg-[#3d3d40] cursor-pointer"
+            />
+
+            <AiOutlineInbox
+              size={30}
+              className="rounded-md mr-3 p-1 hover:bg-[#f2f2f2] dark:hover:bg-[#3d3d40] cursor-pointer"
+            />
+
+            <BiMessage
+              size={30}
+              className="rounded-md mr-3 p-1 hover:bg-[#f2f2f2] dark:hover:bg-[#3d3d40] cursor-pointer"
+            />
 
             {/* Menu item list when logged in */}
             <Menu as="div" className="relative text-left">
@@ -164,8 +180,8 @@ function NavBar() {
                   <Image
                     className="rounded-full"
                     src={session.user.image}
-                    width={"45"}
-                    height={"45"}
+                    width={"35"}
+                    height={"35"}
                   />
                 </Menu.Button>
               </div>
@@ -179,7 +195,7 @@ function NavBar() {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-[#0e0e10] ring-1 ring-white ring-opacity-5 focus:outline-none">
+                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-[#1f1f23] ring-1 ring-white ring-opacity-5 focus:outline-none">
                   <div className="py-2 px-3">
                     <Menu.Item>
                       {({ active }) => (
@@ -187,28 +203,70 @@ function NavBar() {
                           href="/account"
                           className={classNames(
                             active
-                              ? "bg-[#3d3d40] text-gray-100 rounded-md"
-                              : "text-gray-200",
-                            "block px-4 py-2 text-sm"
+                              ? "bg-white text-black hover:bg-[#dfdfdf] dark:bg-[#3d3d40] dark:text-gray-100 rounded-md"
+                              : "text-black dark:text-gray-200",
+                            "flex px-1.5 py-2 text-sm justify-start items-center"
                           )}
                         >
-                          Account
+                          <BsPerson className="mr-2" /> Account
                         </a>
                       )}
                     </Menu.Item>
 
+                    {/* Color theme change */}
+                    {currentTheme === "dark" ? (
+                      // Dark mode
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            onClick={() => setTheme("light")}
+                            className={classNames(
+                              active
+                                ? "bg-[#3d3d40] text-gray-100 rounded-md"
+                                : "text-gray-200",
+                              "flex px-1.5 py-2 text-sm justify-start items-center"
+                            )}
+                          >
+                            <FiSun className="mr-2" /> Dark Theme
+                          </a>
+                        )}
+                      </Menu.Item>
+                    ) : (
+                      // Light mode
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            onClick={() => setTheme("dark")}
+                            className={classNames(
+                              active
+                                ? "bg-white text-black rounded-md hover:bg-[#dfdfdf]"
+                                : "text-black",
+                              "flex px-1.5 py-2 text-sm justify-start items-center"
+                            )}
+                          >
+                            <FiMoon className="mr-2" /> Dark Theme
+                          </a>
+                        )}
+                      </Menu.Item>
+                    )}
+
+                    <p className="border-t border-gray-700 my-2"></p>
+
+                    {/* Log out item*/}
                     <Menu.Item>
                       {({ active }) => (
                         <p
                           onClick={() => signOut()}
                           className={classNames(
                             active
-                              ? "bg-[#3d3d40] text-gray-100 rounded-md"
-                              : "text-gray-200",
-                            "block px-4 py-2 text-sm"
+                              ? "bg-white text-black hover:bg-[#dfdfdf] dark:bg-[#3d3d40] dark:text-gray-100 rounded-md"
+                              : "text-black dark:text-gray-200",
+                            "flex px-1.5 py-2 text-sm justify-start items-center"
                           )}
                         >
-                          Logout
+                          <FiLogOut className="mr-2" /> Logout
                         </p>
                       )}
                     </Menu.Item>

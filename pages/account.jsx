@@ -21,7 +21,7 @@ function account() {
           />
         </div>
         <button
-          className="flex items-center justify-center p-3 bg-gray-600 border border-gray-600"
+          className="flex items-center text-white justify-center p-3 bg-gray-600 border border-gray-600"
           onClick={() => signOut()}
         >
           Sign out

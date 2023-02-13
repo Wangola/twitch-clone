@@ -31,7 +31,7 @@ function LiveChannels() {
         <LiveChannelItem
           img={Live2}
           profile_img="https://static-cdn.jtvnw.net/jtv_user_pictures/7d91bd5b-9648-4e43-91b8-1157d0d6ee60-profile_image-70x70.png"
-          title="🔴LS | MAKING TIME UNTIL LEC WITH ASOL IN KOREAN SOLOQ 🔴 !MERCH !Protierlist !vod !autism !asol !13.2 !13.3 !patreon"
+          title="🔴LS | MAKING TIME UNTIL LEC WITH ASOL IN KOREAN SOLOQ 🔴"
           user="imls"
           game="League of Legends"
         />
@@ -59,14 +59,14 @@ function LiveChannels() {
         <LiveChannelItem
           img={Live6}
           profile_img="https://static-cdn.jtvnw.net/jtv_user_pictures/b3c347ed-1a7a-40a2-8bee-8a7c4426eb33-profile_image-50x50.png"
-          title="Warzone With Subs | !MFAMShop | Code: MFAM | @NICKMERCS"
+          title="Warzone With Subs | !MFAMShop | Code: MFAM"
           user="NICKMERCS"
           game="Call of Duty: Warzone"
         />
         <LiveChannelItem
           img={Live7}
           profile_img="https://static-cdn.jtvnw.net/jtv_user_pictures/38e925fc-0b07-4e1e-82e2-6639e01344f3-profile_image-70x70.png"
-          title="SUB SUNDAY NOT HARRY POTTER EDITION BUT HOGWARTS LATER TONIGHT EDITION BUT UNTIL THEN HOLY VARIETY THERE ARE OTHER GAMES OUT??? WHATTTTT"
+          title="SUB SUNDAY NOT HARRY POTTER EDITION BUT HOGWARTS LATER TONIGHT EDITION"
           user="LIRIK"
           game="Greedventory"
         />
