@@ -5,6 +5,7 @@ import GoogleProvider from "next-auth/providers/google";
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
+    // Github only works on live servers
     GithubProvider({
       clientId: process.env.GIT_ID,
       clientSecret: process.env.GIT_SECRET,
